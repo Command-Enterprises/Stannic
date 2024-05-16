@@ -1,0 +1,26 @@
+{
+    "name": "stannic",
+    "version": "0.1",
+    "license": "GPL-3.0-only",
+    "description": "Minimalistic incognito proxy using Corrosion.",
+    "author": {
+        "name": "Jasper Quartarolo",
+        "url": "https://www.quartinal.com"
+    },
+    "contributors": [
+        {
+            "name": "Harvey Edmonds",
+            "email": "harvsmitt@outlook.com",
+            "url": "https://accessgames.github.io"
+        },
+        {
+            "name": "Preston Truong",
+            "email": "PrestonT500WasTaken@proton.me",
+            "url": "https://prestont500.github.io"
+        }
+    ],
+    "dependencies": {
+        "corrosion": "git+https://github.com/titaniumnetwork-dev/Corrosion.git",
+        "express": "4.19.2"
+    }
+}
