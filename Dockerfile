@@ -2,4 +2,4 @@ FROM node:latest
 
 COPY . .
 
-CMD ["node", "index.js"]
+CMD ["node", "index.mjs"]
