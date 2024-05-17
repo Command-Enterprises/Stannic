@@ -110,7 +110,7 @@
             input.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') {
                     if (input.value.startsWith('http') || input.value.startsWith('https')) {
-                        window.location.href = `/~/corrosion/${input.value}`;
+                        window.location.href = '/~/corrosion/gateway?url=' + input.value;
                         return;
                     }
                 }
