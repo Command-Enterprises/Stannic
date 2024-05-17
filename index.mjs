@@ -1,6 +1,5 @@
 import Corrosion from "corrosion";
 import express from "express";
-import http from "http";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -27,16 +26,8 @@ routes.forEach((route) => {
     });
 });
 
-const server = http.createServer();
-
-server.on('upgrade', (req, conn, head) => {
-    if (req.url.startsWith(corrosion.prefix)) return corrosion.upgrade(req, conn, head);
-    conn.end();
-});
-
-server.on('request', (req, res) => {
-    if (req.url.startsWith(corrosion.prefix)) return corrosion.request(req, res);
-    app(req, res);
+app.use('/', (req, res) => {
+    corrosion.request(req, res);
 });
 
 const PORT = 8000;
