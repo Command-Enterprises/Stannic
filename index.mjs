@@ -30,11 +30,13 @@ routes.forEach((route) => {
 const server = http.createServer();
 
 server.on('upgrade', (req, conn, head) => {
-    corrosion.upgrade(req, conn, head);
+    if (req.url.startsWith(corrosion.prefix)) return corrosion.upgrade(req, conn, head);
+    conn.end();
 });
 
 server.on('request', (req, res) => {
-    corrosion.request(req, res);
+    if (req.url.startsWith(corrosion.prefix)) return corrosion.request(req, res);
+    app(req, res);
 });
 
 const PORT = 8000;
