@@ -2,6 +2,7 @@ import Corrosion from "corrosion";
 import express from "express";
 import http from "http";
 import path from "path";
+import { fileURLToPath } from "url";
 
 const corrosion = new Corrosion({
     codec: 'xor',
@@ -10,6 +11,9 @@ const corrosion = new Corrosion({
 });
 
 const app = express();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const routes = [
     { path: '/', file: 'index.html' },
